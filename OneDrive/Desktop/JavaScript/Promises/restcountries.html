@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest Countries</title>
+</head>
+<body>
+    <script>
+        fetch('https://restcountries.com/v3.1/name/india')
+
+
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(data){
+            console.log(data)
+        }).catch(function(error){
+            console.log(error)
+        })
+    </script>
+</body>
+</html>

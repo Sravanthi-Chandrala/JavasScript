@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX call Using promises</title>
+    <style>
+        body{
+            text-align: center;
+        }
+
+        .button{
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <input type="submit" class="button" id="special" value="Get Data"/>
+    <div id="data"></div>
+    <script>
+        let btn = document.getElementById('special');
+        let dataele = document.getElementById('data');
+
+        btn.addEventListener('click', function () {
+            let p = new Promise(function (resolve, reject) {
+                let xhr = new XMLHttpRequest();
+                xhr.open('GET', 'name.txt', true);
+                xhr.send();
+
+                xhr.onload = function () {
+                    if (xhr.status == 200) {
+                        resolve(xhr.responseText);
+                    } else {
+                        reject("No data found");
+                    }
+                }
+            });
+
+            p.then(function (data) {
+                console.log(data);
+                dataele.innerText = data;
+            })
+            .catch(function (errorData) {
+                console.log(errorData);
+            });
+        });
+    </script>
+</body>
+</html>

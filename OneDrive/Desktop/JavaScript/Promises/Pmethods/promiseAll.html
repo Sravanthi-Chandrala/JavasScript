@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise - All</title>
+</head>
+<body>
+    <script>
+
+
+
+
+           //Promise all method
+
+        let p= new Promise(function(resolve,reject){
+            setTimeout((result)=>{
+                resolve(10);
+                console.log('Promise');
+                return result;
+            })
+        });
+        let p1= new Promise(function(resolve,reject){
+            setTimeout((result)=>{
+                resolve(10);
+                console.log('Promise--1');
+                return result*2;
+            })
+        });
+        let p2= new Promise(function(resolve,reject){
+            setTimeout((result)=>{
+                reject(10);
+                console.log('Promise--2');
+                return result*3;
+            })
+        });
+
+
+        Promise.allSettled([p,p1,p2]).then((data)=>{
+            console.log(data)
+        }).catch((error)=>{
+            console.log(error)
+        })
+
+
+    </script>
+</body>
+</html>

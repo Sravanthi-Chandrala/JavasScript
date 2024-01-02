@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Promise chaining
+        let p=new Promise(function(resolve,reject){
+            setTimeout(()=>{
+                resolve(10);
+            },3*100)
+        })
+        p.then(function(result){
+            console.log(result);
+            return result*2
+        }).then(function(result){
+            console.log(result);
+            return result*3
+        }).then(function(result){
+            console.log(result);
+            return result*4
+        })
+    </script>
+</body>
+</html>
